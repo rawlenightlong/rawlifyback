@@ -24,13 +24,13 @@ mongoose.connection
   .on("close", () => console.log("You are disconnected from mongoose"))
   .on("error", (error) => console.log(error));
 
-const SongSchema = new mongoose.Schema({
+const SpotSongSchema = new mongoose.Schema({
     username: String,
     title: String,
     artist: String
 })
 
-const Songs = mongoose.model("Songs", SongSchema)
+const SpotSongs = mongoose.model("Spotify Songs", SpotSongSchema)
 
 // Landing Route
 
@@ -41,9 +41,9 @@ app.get("/", (req, res) => {
 
 // Index Route
 
-app.get("/songs", async (req, res) => {
+app.get("/spotsongs", async (req, res) => {
 try{
-    res.json( await Songs.findOne({}))
+    res.json( await SpotSongs.find({}))
 }
 catch(error){
     res.status(400).json(error)
@@ -52,20 +52,21 @@ catch(error){
 
 
 // Create Route
-app.post("/songs", async (req, res) => {
+app.post("/spotsongs", async (req, res) => {
     try{
-        res.json(await Songs.create(req.body))
+        res.json(await SpotSongs.create(req.body))
     }
     catch(error){
         res.status(400).json(error)
+        console.log(error)
     }
     })
 
 
 // Update Route
-app.put("/songs/:id", async (req, res) => {
+app.put("/spotsongs/:id", async (req, res) => {
     try{
-        res.json( await Songs.findByIdAndUpdate(req.params.id, req.body, {new: true}))
+        res.json( await SpotSongs.findByIdAndUpdate(req.params.id, req.body, {new: true}))
     }
     catch(error){
         res.status(400).json(error)
@@ -73,9 +74,9 @@ app.put("/songs/:id", async (req, res) => {
     })
 
 // Delete Route
-app.delete("/songs/:id", async (req, res) => {
+app.delete("/spotsongs/:id", async (req, res) => {
     try{
-        res.json( await Songs.findByIdAndDelete(req.params.id))
+        res.json( await SpotSongs.findByIdAndDelete(req.params.id))
     }
     catch(error){
         res.status(400).json(error)
@@ -84,9 +85,9 @@ app.delete("/songs/:id", async (req, res) => {
 
 
 // Show Route
-app.get("/songs/:id", async (req, res) => {
+app.get("/spotsongs/:id", async (req, res) => {
     try{
-        res.json( await Songs.findById(req.params.id))
+        res.json( await SpotSongs.findById(req.params.id))
     }
     catch(error){
         res.status(400).json(error)
