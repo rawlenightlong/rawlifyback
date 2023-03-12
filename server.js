@@ -27,7 +27,8 @@ mongoose.connection
 const SpotSongSchema = new mongoose.Schema({
     username: String,
     title: String,
-    artist: String
+    artist: String,
+    url: String
 })
 
 const SpotSongs = mongoose.model("Spotify Songs", SpotSongSchema)
