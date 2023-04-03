@@ -1,7 +1,7 @@
 #Rawlify
 ###A Spotify streaming app and playlist creator 
 
-####Technologies
+#### Technologies
 - Javascript
 - HTML
 - Tailwind CSS
@@ -11,7 +11,10 @@
 - Node
 - Render
 
-####Wireframes
+#### Deployed Link
+https://rawlify.vercel.app
+Frontend Github: www.github.com/rawlenightlong/nextrawlify
+#### Wireframes
 
 ![model](https://i.imgur.com/l3lOT9k.png)
 ![model](https://i.imgur.com/o37IhcH.png)
